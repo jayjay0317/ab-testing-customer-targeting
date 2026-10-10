@@ -148,3 +148,35 @@ CROSS JOIN group_stats c
 WHERE c.segment = 'No E-Mail'
     AND t.segment <> 'No E-Mail'
 ORDER BY t.segment;
+
+
+-- 6. Balance of purchase channels across experiment groups
+
+SELECT
+    segment,
+    channel,
+    COUNT(*) AS customer_count,
+    ROUND(
+        100.0 * COUNT(*) /
+        SUM(COUNT(*)) OVER (PARTITION BY segment),
+        2
+    ) AS percentage
+FROM hillstrom
+GROUP BY segment, channel
+ORDER BY segment, channel;
+
+
+-- 7. Balance of geographic categories across experiment groups
+
+SELECT
+    segment,
+    zip_code,
+    COUNT(*) AS customer_count,
+    ROUND(
+        100.0 * COUNT(*) /
+        SUM(COUNT(*)) OVER (PARTITION BY segment),
+        2
+    ) AS percentage
+FROM hillstrom
+GROUP BY segment, zip_code
+ORDER BY segment, zip_code;
