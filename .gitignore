@@ -220,3 +220,6 @@ __marimo__/
 .streamlit/secrets.toml
 
 /data/raw/
+
+# Korean portfolio report (local only)
+portfolio/JAEWOO_LEE_AB_Test_Portfolio_Final.pdf
