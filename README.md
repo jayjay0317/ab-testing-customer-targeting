@@ -110,6 +110,7 @@ ab-testing-customer-targeting/
 │   ├── 01_experiment_validation.ipynb
 │   ├── 02_treatment_effect_analysis.ipynb
 │   └── 03_subgroup_analysis.ipynb
+├── requirements.txt
 ├── .gitignore
 └── README.md
 ```
@@ -129,7 +130,8 @@ The raw dataset is excluded from version control. To reproduce the analysis, dow
 3. Execute `sql/01_create_table.sql` to create the experiment table.
 4. Import the CSV into the `hillstrom` table using pgAdmin or another PostgreSQL import method.
 5. Execute the remaining SQL scripts in numerical order.
-6. Install the required Python libraries and open the notebooks in Jupyter or VS Code.
+6. Install the Python dependencies using `pip install -r requirements.txt`, then open the notebooks in Jupyter or VS Code.
+
 7. Run the notebooks in numerical order, using the `notebooks/` directory as the working directory.
 
 The SQL scripts provide the detailed data validation and aggregation logic, while the notebooks document statistical inference, uncertainty estimates, and interpretation.
